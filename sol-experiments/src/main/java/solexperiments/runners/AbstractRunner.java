@@ -7,7 +7,7 @@ import solengine.model.Vocabulary;
 
 public class AbstractRunner {
 	
-	static int configNumber = 1;
+	static int configNumber = 6;
 	
 	static String[] names = {
 			"all",				// 0
@@ -32,11 +32,11 @@ public class AbstractRunner {
 	static EngineInterface system = new EngineInterface();
 	static List<String> datasetAddresses =  Arrays.asList(Vocabulary.DBpediaEndpoint);
 
-	public static String queryOn = query[0];
+	public static String queryOn = query[1];
 	public static String modeOn = mode[1];
 	public static String baseProject = names[configNumber];
 	
-	public static String baseFolder = queryOn + "//" + modeOn +"//" + baseProject;
+	public static String baseFolder = "nada"; //queryOn + "//" + modeOn +"//" + baseProject;
 	
 	static String baseListFile = "__userResults"; 
 	
