@@ -19,11 +19,11 @@ public static void main(String[] args) {
 		long start = System.currentTimeMillis();
 		
 //		stepZero();
-		stepOne();
+//		stepOne();
 //		stepOne_B();	
 //		realOneStep();
-//		realFinalStep();
-		finalStep();
+		realFinalStep();
+//		finalStep();
 
 		long elapsedTime = System.currentTimeMillis() - start;
 		
@@ -117,9 +117,9 @@ public static void main(String[] args) {
 
 	public static void realFinalStep() {
 
-		for(int i=1; i<6; i++) {
+		for(int i=0; i<7; i++) {
 			System.out.println("Here goes " + names[i]);
-			baseFolder = "analysis//full//" +  names[i];
+			baseFolder = "analysis//" + queryOn + "//" + modeOn +"//" +  names[i];
 			finalStep();
 			System.out.println("-------------------------------------");
 		}
