@@ -25,6 +25,8 @@ public class ResultStorage extends List2Storage {
 	public static QueryResponseDto readQResponseDto(String folder, String fileName) {
 		QueryResponseDto savedList = null;
 		
+//		RDFNode x = null;
+		
 		try {
 			savedList = mapper.readValue(new File(
 					Config.root + 
