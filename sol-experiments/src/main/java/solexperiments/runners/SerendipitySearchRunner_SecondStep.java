@@ -20,8 +20,7 @@ public class SerendipitySearchRunner_SecondStep extends AbstractRunner {
 		System.out.println("Here goes " + baseFolder);
 		
 		long start = System.currentTimeMillis();
-//		doIt();
-		optimDoIt();
+		retrieveSerendipResponse();
 		
 		long elapsedTime = System.currentTimeMillis() - start;
 		
@@ -29,21 +28,7 @@ public class SerendipitySearchRunner_SecondStep extends AbstractRunner {
 		System.out.println("Here lies " + baseFolder);
 	}
 	
-
-
-	private static void doIt() {
-		List<List<String>> baseResults = ResultStorage.readListOfLists(baseFolder, baseListFile);
-		System.out.println("starting with "+baseResults.size());
-		for(List<String> result : baseResults) {
-			List<QueryResponse> responses = system.findResponse(result, datasetAddresses);
-			for(QueryResponse response : responses) {
-				persistResponse(response);
-			}
-		}
-		
-	}
-	
-	private static void optimDoIt() {
+	private static void retrieveSerendipResponse() {
 		List<List<String>> baseResults = ResultStorage.readListOfLists(baseFolder, baseListFile);
 		System.out.println("starting with "+baseResults.size());
 		

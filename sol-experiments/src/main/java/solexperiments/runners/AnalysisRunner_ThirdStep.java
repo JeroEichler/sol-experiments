@@ -19,11 +19,11 @@ public static void main(String[] args) {
 		long start = System.currentTimeMillis();
 		
 //		stepZero();
-//		stepOne();
+		stepOne();
 //		stepOne_B();	
 //		realOneStep();
-		realFinalStep();
-//		finalStep();
+//		realFinalStep();
+		finalStep();
 
 		long elapsedTime = System.currentTimeMillis() - start;
 		

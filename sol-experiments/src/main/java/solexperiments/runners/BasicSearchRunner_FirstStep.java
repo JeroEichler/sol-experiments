@@ -40,6 +40,9 @@ public class BasicSearchRunner_FirstStep extends AbstractRunner {
 		if(queryOn.equals("m-artist")) {
 			type = "http://dbpedia.org/ontology/MusicalArtist";
 		}
+		else if(queryOn.equals("movie")) {
+			type = "http://dbpedia.org/ontology/Film";
+		}
 		String userQuery = 
 	            "SELECT ?subject where {" + 
 	                    "	?subject <"+Vocabulary.Rdf_TypeProperty+"> <" + type + "> ." + 
