@@ -3,6 +3,7 @@ package solexperiments.runners;
 import java.util.ArrayList;
 import java.util.List;
 
+import solengine.configuration.Config;
 import solengine.datasetorchestration.ResultAnalysisOrchestrator;
 import solengine.model.AnalyzedQueryResponse;
 import solengine.model.QueryResponse;
@@ -12,8 +13,9 @@ import solexperiments.storage.ResultStorage;
 
 public class AnalysisRunner_ThirdStep extends AbstractRunner {
 
-public static void main(String[] args) {
-		
+	public static void main(String[] args) {
+	
+		System.out.println(Config.version);
 		System.out.println("Here goes " + baseProject);
 		
 		long start = System.currentTimeMillis();
@@ -98,7 +100,10 @@ public static void main(String[] args) {
 		
 		for(String title : list) {
 			AnalyzedQueryResponse aqr = ResultStorage.readAnalysis(analysisBaseFolder, title);
-			if(!aqr.emptyResponse) {
+			if(aqr.emptyResponse || !aqr.valid) {
+				System.out.println("error, error");
+			}
+			else {
 				sum = sum + aqr.unexpectednessScore;
 				counter++;
 			}

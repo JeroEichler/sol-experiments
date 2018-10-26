@@ -7,16 +7,16 @@ import solengine.model.Vocabulary;
 
 public class AbstractRunner {
 	
-	static int configNumber = 6;
+	static int configNumber = 0;
 	
 	static String[] names = {
-			"all",				// 0
+			"musicInflAnalogy",	// 0
 			"genAnalogy",		// 1
-			"genDiffInversion",	// 2
-			"genSameAsSO",		// 3
-			"genSeeAlsoSO",		// 4
-			"musicAssocSO",		// 5
-			"musicInflAnalogy"	// 6
+			"genSeeAlsoSO",		// 2
+			"musicAssocSO",		// 3
+			"genSameAsSO",		// 4
+			"genDiffInversion",	// 5
+			"all"				// 6
 		};
 		
 	static String[] query = {
