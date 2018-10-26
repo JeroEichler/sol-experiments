@@ -11,7 +11,7 @@ import solengine.model.Vocabulary;
 import solengine.utils.StringFormatter;
 import solexperiments.storage.ResultStorage;
 
-public class AnalysisRunner_ThirdStep extends AbstractRunner {
+public class Step3_AnalysisRunner extends AbstractRunner {
 
 	public static void main(String[] args) {
 	

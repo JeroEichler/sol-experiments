@@ -8,7 +8,7 @@ import solengine.model.QueryResponse;
 import solengine.utils.StringFormatter;
 import solexperiments.storage.ResultStorage;
 
-public class SerendipitySearchRunner_SecondStep extends AbstractRunner {
+public class Step2_SerendipitySearchRunner extends AbstractRunner {
 
 	public static void main(String[] args) {
 		

@@ -6,7 +6,7 @@ import java.util.List;
 import solengine.model.Vocabulary;
 import solexperiments.storage.ResultStorage;
 
-public class BasicSearchRunner_FirstStep extends AbstractRunner {
+public class Step1_BasicSearchRunner extends AbstractRunner {
 
 	public static void main(String[] args) {
 		theOneThatStoresBasicResults();
