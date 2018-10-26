@@ -37,7 +37,9 @@ public class AbstractRunner {
 	public static String modeOn = mode[0];
 	public static String baseProject = names[configNumber];
 	
-	public static String baseFolder = queryOn + "//" + modeOn +"//" + baseProject;
+	public static String baseFolder = queryOn + "//" /*+ modeOn +"//" + baseProject*/;	
+	
+	public static String analysisBaseFolder = "analysis//" + baseFolder;
 	
 	static String baseListFile = "__userResults"; 
 	
@@ -45,12 +47,10 @@ public class AbstractRunner {
 	
 
 	protected static void printProgress() {
-		if(counter % 500 == 0) {
+		if(counter % 2500 == 0) {
 			System.out.println("passed by "+counter);
 		}
 		counter++;
 	}
-	
-	public static String analysisBaseFolder = "analysis//" + baseFolder;
 
 }

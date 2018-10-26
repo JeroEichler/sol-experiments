@@ -132,15 +132,18 @@ public class AnalysisRunner_ThirdStep extends AbstractRunner {
 	}
 
 
-	public static void realOneStep() {
-
-		for(int i=1; i<6; i++) {
-			System.out.println("Here goes " + names[i]);
-			baseFolder = "analysis//full//" + queryOn + "//" + modeOn +"//" +  names[i];
+	
+	public static void batchStepOne() {	
+		
+		for(int i=0; i<7; i++) {
+			baseFolder = queryOn + "//" + modeOn +"//" +  names[i];
+			System.out.println("Here goes " + baseFolder);
+			analysisBaseFolder = "analysis//" + baseFolder;
 			stepOne();
 			System.out.println("-------------------------------------");
 		}
-
+		
 	}
+	
 
 }
