@@ -3,9 +3,9 @@ package solexperiments.sample;
 import java.util.ArrayList;
 import java.util.List;
 
-import solengine.configuration.Config;
 import solengine.frontier.EngineInterface;
 import solengine.model.Vocabulary;
+import solexperiments.configuration.Config;
 
 /************************************************************************************************************
  * Crawler to query a single endpoint, in a breadth first manner

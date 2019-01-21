@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import solengine.configuration.Config;
-import solengine.datasetorchestration.ResultAnalysisOrchestrator;
+import solengine.datasetorchestration.QueryResponseAnalysisOrchestrator;
 import solengine.model.AnalyzedQueryResponse;
 import solengine.model.QueryResponse;
 import solengine.model.Vocabulary;
@@ -49,7 +49,7 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 	}
 	
 	public static void stepOne() {		
-		ResultAnalysisOrchestrator analyser = new ResultAnalysisOrchestrator(Vocabulary.DBpediaEndpoint);
+		QueryResponseAnalysisOrchestrator analyser = new QueryResponseAnalysisOrchestrator(Vocabulary.DBpediaEndpoint);
 		
 		List<String> list = ResultStorage.readList(analysisBaseFolder, "__base");
 		List<QueryResponse> responses = new ArrayList<QueryResponse>();
@@ -69,7 +69,7 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 	}
 	
 	public static void stepOne_B() {		
-		ResultAnalysisOrchestrator analyser = new ResultAnalysisOrchestrator(Vocabulary.DBpediaEndpoint);
+		QueryResponseAnalysisOrchestrator analyser = new QueryResponseAnalysisOrchestrator(Vocabulary.DBpediaEndpoint);
 		
 		List<String> list = ResultStorage.readList(analysisBaseFolder, "__base");
 		

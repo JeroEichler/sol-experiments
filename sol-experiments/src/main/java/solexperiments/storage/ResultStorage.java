@@ -17,7 +17,7 @@ import solexperiments.configuration.Config;
 public class ResultStorage extends List2Storage {
 
 	public static String saveSingleResult(String folder, String title, QueryResponse result){		
-		QueryResponseDto exportedResult = ModelConverter.convert(result);		
+		QueryResponseDto exportedResult = ModelConverter.toDto(result);		
 		saveEntity(folder, title, exportedResult);
 		return title;
 	}
@@ -48,7 +48,7 @@ public class ResultStorage extends List2Storage {
 	public static QueryResponse readQResponse(String folder, String fileName) {
 		QueryResponseDto dto = readQResponseDto(folder, fileName);
 		
-		QueryResponse qr = ModelConverter.convert(dto);
+		QueryResponse qr = ModelConverter.fromDto(dto);
 		return qr;
 	}
 	
@@ -56,7 +56,7 @@ public class ResultStorage extends List2Storage {
 
 	public static String saveSingleAnalysis(String folder, AnalyzedQueryResponse result){	
 		String title = StringFormatter.clean(result.queryResponse.getResult());	
-		AnalyzedQueryResponseDto exportedResult = ModelConverter.convert(result);		
+		AnalyzedQueryResponseDto exportedResult = ModelConverter.toDto(result);		
 		saveEntity(folder, title, exportedResult);
 		return title;
 	}
@@ -85,7 +85,7 @@ public class ResultStorage extends List2Storage {
 	public static AnalyzedQueryResponse readAnalysis(String folder, String fileName) {
 		AnalyzedQueryResponseDto dto = readAQRDto(folder, fileName);
 		
-		AnalyzedQueryResponse qr = ModelConverter.convert(dto);
+		AnalyzedQueryResponse qr = ModelConverter.fromDto(dto);
 		return qr;
 	}
 	
