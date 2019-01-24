@@ -18,6 +18,14 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 		System.out.println(Config.version);
 		System.out.println("Here goes " + baseProject);
 		
+		performAnalysis();
+		
+		System.out.println("Here goes " + baseFolder);
+
+	}
+	
+	public static void performAnalysis() {
+		
 		long start = System.currentTimeMillis();
 		
 //		stepZero();
@@ -25,13 +33,11 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 //		stepOne_B();	
 //		realOneStep();
 //		realFinalStep();
-		finalStep();
+		//readLocalAnalysis();
 
 		long elapsedTime = System.currentTimeMillis() - start;
 		
 		System.out.println("### Finished at "+elapsedTime/1000F+" seconds");
-		
-		System.out.println("Here goes " + baseFolder);
 
 	}
 	
@@ -94,7 +100,7 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 		}	
 	}
 
-	public static void finalStep() {
+	public static void readLocalAnalysis() {
 		double sum = 0, counter = 0;
 		List<String> list = ResultStorage.readList(analysisBaseFolder, "__successX");
 		
@@ -114,8 +120,10 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 			average = sum / counter;
 		}
 
-		System.out.println("unexpectedness equal to : " + average);
-		System.out.println("in a total of : " + counter);
+		System.out.println("In path : " + analysisBaseFolder);
+		System.out.println("--- unexpectedness equal to : " + average);
+		System.out.println("--- in a total of : " + counter);
+		System.out.println("-----------------------------------------------");
 
 	}
 	
@@ -125,7 +133,7 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 		for(int i=0; i<7; i++) {
 			System.out.println("Here goes " + names[i]);
 			baseFolder = "analysis//" + queryOn + "//" + modeOn +"//" +  names[i];
-			finalStep();
+			readLocalAnalysis();
 			System.out.println("-------------------------------------");
 		}
 

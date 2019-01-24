@@ -11,13 +11,18 @@ import solexperiments.storage.ResultStorage;
 public class Step2_SerendipitySearchRunner extends AbstractRunner {
 
 	public static void main(String[] args) {
+		performSerendipitySearch();
+	}
+
+
+	public static void performSerendipitySearch() {
 		
 		Config.qeConfiguration = new QESystemConfiguration(configNumber);
 		if(modeOn.equals("limited")) {
 			Config.setLimit(1);
 		}
 		
-		System.out.println("Here goes " + baseFolder);
+		System.out.println("Here goes " + baseFolder + " under " + configNumber + "configuration. ");
 		
 		long start = System.currentTimeMillis();
 		retrieveSerendipResponse();
@@ -55,6 +60,14 @@ public class Step2_SerendipitySearchRunner extends AbstractRunner {
 			System.out.println("danger");
 			ResultStorage.updateList(baseFolder, "__errorX", title);
 		}
+	}
+	
+	public static void debug() {
+		
+		System.out.println(configNumber);
+		Config.qeConfiguration = new QESystemConfiguration(configNumber);
+		System.out.println(Config.qeConfiguration.HierarchieAnalogy);
+		System.out.println("-------------------------------------------");
 	}
 
 }

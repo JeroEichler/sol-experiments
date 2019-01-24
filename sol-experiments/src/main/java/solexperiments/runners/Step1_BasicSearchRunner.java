@@ -9,6 +9,10 @@ import solexperiments.storage.ResultStorage;
 public class Step1_BasicSearchRunner extends AbstractRunner {
 
 	public static void main(String[] args) {
+		performBasicSearch();
+	}
+	
+	public static void performBasicSearch() {
 		theOneThatStoresBasicResults();
 		theOneThatReadsBasicResults();
 
