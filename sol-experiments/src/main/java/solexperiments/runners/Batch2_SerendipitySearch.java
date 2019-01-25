@@ -9,7 +9,7 @@ public class Batch2_SerendipitySearch extends AbstractRunner {
 		System.out.println("Are you ready?");
 		
 		//query = [	band(0), m-artist(1), movie(2)	]
-		for(queryId=0; queryId<3; queryId++) {
+		for(queryId=1; queryId<2; queryId++) {
 			//mode = [ limited(0), full(1)	]
 			for(modeId=0; modeId<2; modeId++) {
 				//config = [	musicInflAnalogy(0), genAnalogy(1), 
