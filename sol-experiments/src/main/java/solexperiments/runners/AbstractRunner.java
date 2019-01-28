@@ -7,9 +7,9 @@ import solengine.model.Vocabulary;
 
 public class AbstractRunner {
 	
-	static int configNumber = 0;
+	protected static int configNumber = 0;
 	
-	static String[] names = {
+	protected static String[] names = {
 			"musicInflAnalogy",	// 0
 			"genAnalogy",		// 1
 			"genSeeAlsoSO",		// 2
@@ -19,19 +19,19 @@ public class AbstractRunner {
 			"all"				// 6
 		};
 		
-	static String[] query = {
+	protected static String[] query = {
 			"band",
 			"m-artist",
 			"movie"
 		};
 	
-	static String[] mode = {
+	protected static String[] mode = {
 			"limited",
 			"full"
 		};
 	
-	static EngineInterface system = new EngineInterface();
-	static List<String> datasetAddresses =  Arrays.asList(Vocabulary.DBpediaEndpoint);
+	protected static EngineInterface system = new EngineInterface();
+	protected static List<String> datasetAddresses =  Arrays.asList(Vocabulary.DBpediaEndpoint);
 
 	public static String queryOn = query[2];
 	public static String modeOn = mode[0];
@@ -41,9 +41,9 @@ public class AbstractRunner {
 	
 	public static String analysisBaseFolder = "analysis//" + baseFolder;
 	
-	static String baseListFile = "__userResults"; 
+	protected static String baseListFile = "__userResults"; 
 	
-	static int counter = 0;
+	protected static int counter = 0;
 	
 
 	protected static void printProgress() {
