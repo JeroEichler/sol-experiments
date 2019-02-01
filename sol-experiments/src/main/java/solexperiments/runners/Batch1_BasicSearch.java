@@ -19,7 +19,9 @@ public class Batch1_BasicSearch extends AbstractRunner{
 				//				all(6)	]
 				for(configNumber=0; configNumber<7; configNumber++) {
 					baseFolder = "data//" + query[queryId] + "//" + mode[modeId] +"//" + names[configNumber];	
+					
 					queryOn = query[queryId];
+					
 					Step1_BasicSearchRunner.performBasicSearch();
 				}
 			}

@@ -100,16 +100,43 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 		}	
 	}
 
-	public static void readLocalAnalysis() {
+	public static void readLocalAnalysisTEMPORARY() {
 		double sum = 0, counter = 0;
 		List<String> list = ResultStorage.readList(analysisBaseFolder, "__successX");
 		
 		for(String title : list) {
 			AnalyzedQueryResponse aqr = ResultStorage.readAnalysis(analysisBaseFolder, title);
 			if(aqr.emptyResponse || !aqr.valid) {
-				System.out.println("error, error");
+//				System.out.println("error, error");
 			}
 			else {
+				sum = sum + aqr.unexpectednessScore;
+				counter++;
+			}
+		}
+		
+		double average = 0;
+		if(counter != 0) {
+			average = sum / counter;
+		}
+
+		System.out.println("In path : " + analysisBaseFolder);
+		System.out.println("--- unexpectedness equal to : " + average);
+		System.out.println("--- in a total of : " + counter);
+		System.out.println("-----------------------------------------------");
+
+	}
+	
+	public static void readLocalAnalysis() {
+		double sum = 0, counter = 0;
+		List<String> list = ResultStorage.readList(analysisBaseFolder, "__successX");
+		
+		for(String title : list) {
+			AnalyzedQueryResponse aqr = ResultStorage.readAnalysis(analysisBaseFolder, title);
+			if(!aqr.valid) {
+				System.out.println("error, error");
+			}
+			else if (!aqr.emptyResponse) {
 				sum = sum + aqr.unexpectednessScore;
 				counter++;
 			}

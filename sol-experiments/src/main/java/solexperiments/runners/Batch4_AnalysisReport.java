@@ -24,7 +24,7 @@ public class Batch4_AnalysisReport extends AbstractRunner {
 					modeOn = mode[modeId];
 					counter = 0;
 					
-					Step3_AnalysisRunner.readLocalAnalysis();
+					Step3_AnalysisRunner.readLocalAnalysisTEMPORARY();
 				}
 			}
 			System.out.println("Finished with " + query[queryId]);

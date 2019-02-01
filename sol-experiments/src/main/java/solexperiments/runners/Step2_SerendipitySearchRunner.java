@@ -21,6 +21,10 @@ public class Step2_SerendipitySearchRunner extends AbstractRunner {
 		if(modeOn.equals("limited")) {
 			Config.setLimit(1);
 		}
+		else {
+			Config.setLimit(2);
+			Config.qeLimited = false;
+		}
 		
 		System.out.println("Here goes " + baseFolder + " under " + configNumber + "configuration. ");
 		
