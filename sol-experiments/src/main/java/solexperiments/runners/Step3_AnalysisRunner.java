@@ -29,8 +29,8 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 		long start = System.currentTimeMillis();
 		
 //		stepZero();
-		stepOne();
-//		stepOne_B();	
+//		stepOne();
+		stepOne_B();	
 //		realOneStep();
 //		realFinalStep();
 		//readLocalAnalysis();
@@ -80,7 +80,7 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 		List<String> list = ResultStorage.readList(analysisBaseFolder, "__base");
 		
 		for(String title : list) {
-			System.out.println(title);
+			//System.out.println(title);
 			QueryResponse qr = ResultStorage.readQResponse(baseFolder, title);
 			AnalyzedQueryResponse analyzed = analyser.analyzeSingle(qr);
 			persistAnalysis(analyzed);				
@@ -98,33 +98,6 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 			ResultStorage.updateList(analysisBaseFolder, "__errorX", title);
 			System.out.println("danger, danger.");
 		}	
-	}
-
-	public static void readLocalAnalysisTEMPORARY() {
-		double sum = 0, counter = 0;
-		List<String> list = ResultStorage.readList(analysisBaseFolder, "__successX");
-		
-		for(String title : list) {
-			AnalyzedQueryResponse aqr = ResultStorage.readAnalysis(analysisBaseFolder, title);
-			if(aqr.emptyResponse || !aqr.valid) {
-//				System.out.println("error, error");
-			}
-			else {
-				sum = sum + aqr.unexpectednessScore;
-				counter++;
-			}
-		}
-		
-		double average = 0;
-		if(counter != 0) {
-			average = sum / counter;
-		}
-
-		System.out.println("In path : " + analysisBaseFolder);
-		System.out.println("--- unexpectedness equal to : " + average);
-		System.out.println("--- in a total of : " + counter);
-		System.out.println("-----------------------------------------------");
-
 	}
 	
 	public static void readLocalAnalysis() {
