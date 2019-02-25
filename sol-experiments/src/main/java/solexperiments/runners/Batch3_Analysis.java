@@ -9,14 +9,14 @@ public class Batch3_Analysis extends AbstractRunner {
 		System.out.println("Are you ready?");
 		
 		//query = [	band(0), m-artist(1), movie(2)	]
-		for(queryId=0; queryId<1; queryId++) {
+		for(queryId=0; queryId<3; queryId++) {
 			//mode = [ limited(0), full(1)	]
-			for(modeId=1; modeId<2; modeId++) {
+			for(modeId=0; modeId<2; modeId++) {
 				//config = [	musicInflAnalogy(0), genAnalogy(1), 
 				//				genSeeAlsoSO(2), musicAssocSO(3), genSameAsSO(4),
 				//				genDiffInversion(5),
 				//				all(6)	]
-				for(configNumber=6; configNumber<7; configNumber++) {
+				for(configNumber=0; configNumber<7; configNumber++) {
 					String functionalPath = query[queryId] + "//" + mode[modeId] +"//" + names[configNumber];
 					baseFolder = "data//" + functionalPath;
 					analysisBaseFolder = "analysis//" + functionalPath;
