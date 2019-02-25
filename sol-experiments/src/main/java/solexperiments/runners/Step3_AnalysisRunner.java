@@ -5,6 +5,7 @@ import java.util.List;
 
 import solengine.configuration.Config;
 import solengine.datasetorchestration.QueryResponseAnalysisOrchestrator;
+import solengine.model.Analysis;
 import solengine.model.AnalyzedQueryResponse;
 import solengine.model.QueryResponse;
 import solengine.model.Vocabulary;
@@ -100,7 +101,7 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 		}	
 	}
 	
-	public static void readLocalAnalysis() {
+	public static Analysis readLocalAnalysis() {
 		double sum = 0, counter = 0;
 		List<String> list = ResultStorage.readList(analysisBaseFolder, "__successX");
 		
@@ -120,10 +121,19 @@ public class Step3_AnalysisRunner extends AbstractRunner {
 			average = sum / counter;
 		}
 
+		
+		Analysis analysis = new Analysis();
+		analysis.unexpectednessAvg = average;
+		analysis.counter = counter;
+		analysis.limited = analysisBaseFolder.contains("limited");
+		analysis.queryExecutor = baseProject;
+		
 		System.out.println("In path : " + analysisBaseFolder);
 		System.out.println("--- unexpectedness equal to : " + average);
 		System.out.println("--- in a total of : " + counter);
 		System.out.println("-----------------------------------------------");
+		
+		return analysis;
 
 	}
 	

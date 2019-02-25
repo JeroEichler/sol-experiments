@@ -1,10 +1,18 @@
 package solexperiments.runners;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import solengine.model.Analysis;
+import solexperiments.storage.BaseStorage;
+
 public class Batch4_AnalysisReport extends AbstractRunner {
 
 	static int queryId = 0, modeId = 0, configNumber = 0;
 
 	public static void main(String[] args) {
+		
+		List<Analysis> output = new ArrayList<Analysis>();
 		
 		System.out.println("Are you ready?");
 		
@@ -20,15 +28,18 @@ public class Batch4_AnalysisReport extends AbstractRunner {
 					String functionalPath = query[queryId] + "//" + mode[modeId] +"//" + names[configNumber];
 					baseFolder = "data//" + functionalPath;
 					analysisBaseFolder = "analysis//" + functionalPath;
+					baseProject = names[configNumber];
 					
 					modeOn = mode[modeId];
 					counter = 0;
 					
-					Step3_AnalysisRunner.readLocalAnalysis();
+					Analysis analysis = Step3_AnalysisRunner.readLocalAnalysis();
+					output.add(analysis);
 				}
 			}
 			System.out.println("Finished with " + query[queryId]);
 		}
+		BaseStorage.saveEntity("output", "analysisList", output);
 	}
 
 }
